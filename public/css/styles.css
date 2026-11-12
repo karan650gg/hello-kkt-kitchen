@@ -299,10 +299,13 @@ a:hover {
 
 .brand-mark {
   flex-shrink: 0;
-  width: 3rem;
-  height: 3rem;
+  width: 3.15rem;
+  height: 3.15rem;
   border-radius: 50%;
-  box-shadow: 0 4px 14px rgb(47 93 80 / 25%);
+  border: 2px solid rgb(255 255 255 / 80%);
+  box-shadow:
+    0 0 0 3px rgb(47 93 80 / 18%),
+    0 6px 16px rgb(47 93 80 / 28%);
 }
 
 .eyebrow {
@@ -318,7 +321,7 @@ a:hover {
 .tagline {
   font-size: 1.08rem;
   max-width: 34rem;
-  color: var(--coffee);
+  color: var(--color-muted);
 }
 
 .hours-badge {
@@ -563,10 +566,11 @@ a:hover {
 }
 
 .pay-panel {
-  padding: 0.9rem 1rem;
-  background: rgb(255 255 255 / 65%);
-  border: 1px solid var(--border);
+  padding: 0.95rem 1.05rem;
+  background: rgb(255 255 255 / 72%);
+  border: 1px solid rgb(196 92 38 / 22%);
   border-radius: calc(var(--radius) - 2px);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 80%);
 }
 
 .payment-instruction {
@@ -800,13 +804,15 @@ a:hover {
 .menu-row__name {
   flex: 1;
   min-width: 0;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .menu-row__price {
   flex-shrink: 0;
   font-variant-numeric: tabular-nums;
-  font-weight: 700;
-  color: var(--color-primary-dark);
+  font-weight: 800;
+  color: var(--color-secondary-dark);
 }
 
 .menu-row .price,
