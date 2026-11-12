@@ -29,6 +29,10 @@ html {
   html {
     scroll-behavior: auto;
   }
+
+  .contact-btn {
+    transition: none;
+  }
 }
 
 body {

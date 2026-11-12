@@ -23,8 +23,12 @@ Business copy, hours, payment text, and contact links also live in `menu.json` u
 2. **Framework preset:** Other (static site, no build command).
 3. **Root Directory:** set to **`public`**. The site files (`menu/`, `data/`, `assets/`, etc.) live under `public/`; there is no `outputDirectory`—the root directory *is* the deploy root.
 4. Leave **Build Command** empty and **Output Directory** empty.
-5. [`vercel.json`](vercel.json) at the repository root configures production behavior (permanent `/` → `/menu/` redirect and short cache on `/data/*`). Vercel reads this file from the repo root even when Root Directory is `public`.
+5. [`public/vercel.json`](public/vercel.json) configures production behavior (permanent `/` → `/menu/` redirect and short cache on `/data/*`). With Root Directory set to **`public`**, Vercel reads `vercel.json` from that folder—not the repository root.
 6. Deploy. Confirm **`https://hello-kkt-kitchen.vercel.app/menu/`** (or your assigned URL) loads the menu.
+
+### Deployment accounts
+
+The GitHub repository lives under **Karan-Gupta-00** (`Karan-Gupta-00/hello-kkt-kitchen`). The Vercel production project is under **karan650gg** (`karan650gg/hello-kkt-kitchen`). Push-to-deploy only works when the Vercel project is linked to that GitHub repo: run `npx vercel git connect` with Root Directory **`public`**. For a one-off production deploy without Git integration, use `cd public && npx vercel --prod`.
 
 ## After the first deploy: `baseUrl` and QR
 
@@ -65,4 +69,4 @@ QR files encode **`{baseUrl}/menu`** (no trailing slash). Download links on the 
 | `public/data/menu.json` | Menu and business data |
 | `public/assets/qr/` | Generated QR SVG/PNG |
 | `scripts/generate-qr.mjs` | QR generator |
-| `vercel.json` | Production redirects and cache headers |
+| `public/vercel.json` | Production redirects and cache headers |

@@ -1,12 +1,13 @@
 const FALLBACK_BUSINESS = {
   chef: "Chef James",
   phoneDisplay: "+91 8778237926",
-  hours: "9:00 AM - 11:00 PM daily",
+  hours: "9:00 AM to 11:00 PM daily",
   currency: "Rs",
   paymentInstruction: "Pay to confirm your order after finalising it with the chef.",
   payHowTo: [
     "Pay online (UPI) to Chef James on +91 8778237926 — the same number used for calls and WhatsApp.",
-    "After paying, send the payment screenshot on WhatsApp so the chef can confirm your order."
+    "After paying, send the payment screenshot on WhatsApp so the chef can confirm your order.",
+    "Do not assume the order is confirmed until the chef replies."
   ]
 };
 
@@ -325,14 +326,4 @@ if (typeof document !== "undefined") {
   } else {
     document.addEventListener("DOMContentLoaded", init);
   }
-}
-
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = {
-    formatPrice,
-    showError,
-    renderMenu,
-    renderFallbackContacts,
-    init
-  };
 }
