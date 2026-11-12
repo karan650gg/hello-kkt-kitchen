@@ -124,7 +124,14 @@
         <h2>Our menu</h2>
         <p class="menu-hint">Prices in Rs · Confirm final price with the chef</p>
       </div>
-      <nav id="category-nav" class="category-nav" aria-label="Menu categories"></nav>
+      <div id="category-nav" class="category-picker">
+        <label class="category-picker__label" for="category-select">Jump to category</label>
+        <div class="category-picker__control">
+          <select id="category-select" class="category-select" aria-label="Menu categories">
+            <option value="">Choose a category</option>
+          </select>
+        </div>
+      </div>
       <div id="menu-sections" class="menu-sections"></div>
     </main>
 

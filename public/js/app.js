@@ -170,46 +170,30 @@ function wireQrSection() {
   }
 }
 
-function setActivePill(nav, activePill) {
-  const pills = nav.querySelectorAll(".cat-pill");
-  for (const pill of pills) {
-    const isCurrent = pill === activePill;
-    pill.classList.toggle("is-active", isCurrent);
-    if (isCurrent) {
-      pill.setAttribute("aria-current", "true");
-    } else {
-      pill.removeAttribute("aria-current");
-    }
-  }
-}
-
 function renderCategories(categories, currency) {
   const nav = document.getElementById("category-nav");
+  const select = document.getElementById("category-select");
   const sectionsContainer = document.getElementById("menu-sections");
-  if (!nav || !sectionsContainer) return;
+  if (!nav || !select || !sectionsContainer) return;
 
   nav.hidden = false;
   sectionsContainer.hidden = false;
 
-  const pills = [];
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = "All categories";
+
+  const options = [placeholder];
   const sections = [];
 
-  categories.forEach((cat, index) => {
+  categories.forEach((cat) => {
     const sectionId = `cat-${cat.id}`;
     const headingId = `cat-heading-${cat.id}`;
 
-    const pill = document.createElement("a");
-    pill.className = "cat-pill";
-    pill.setAttribute("href", `#${sectionId}`);
-    pill.textContent = cat.name;
-    if (index === 0) {
-      pill.classList.add("is-active");
-      pill.setAttribute("aria-current", "true");
-    }
-    pill.addEventListener("click", () => {
-      setActivePill(nav, pill);
-    });
-    pills.push(pill);
+    const option = document.createElement("option");
+    option.value = sectionId;
+    option.textContent = cat.name;
+    options.push(option);
 
     const section = document.createElement("section");
     section.id = sectionId;
@@ -244,7 +228,25 @@ function renderCategories(categories, currency) {
     sections.push(section);
   });
 
-  nav.replaceChildren(...pills);
+  select.replaceChildren(...options);
+  select.value = "";
+  select.onchange = () => {
+    const targetId = select.value;
+    if (!targetId) {
+      sections.forEach((section) => {
+        section.hidden = false;
+      });
+      return;
+    }
+    sections.forEach((section) => {
+      section.hidden = section.id !== targetId;
+    });
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   sectionsContainer.replaceChildren(...sections);
 }
 
@@ -256,8 +258,12 @@ function renderFallbackContacts() {
 
   const nav = document.getElementById("category-nav");
   if (nav) {
-    nav.replaceChildren();
     nav.hidden = true;
+  }
+  const select = document.getElementById("category-select");
+  if (select) {
+    select.replaceChildren();
+    select.onchange = null;
   }
 
   const sections = document.getElementById("menu-sections");
