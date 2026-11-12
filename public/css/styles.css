@@ -10,6 +10,8 @@
   --border: #e4d8c8;
   --radius: 16px;
   --font-display: "Fraunces", "Palatino Linotype", Palatino, serif;
+  --font-menu: "Playfair Display", Georgia, serif;
+  --font-ui: "Space Grotesk", "Segoe UI", sans-serif;
   --font-body: "Source Sans 3", "Segoe UI", sans-serif;
   --shadow: 0 8px 28px rgb(59 42 31 / 10%);
   --tap-min: 48px;
@@ -70,25 +72,129 @@ img {
 h1,
 h2,
 h3 {
-  font-family: var(--font-display);
-  font-weight: 700;
   line-height: 1.2;
-  color: var(--leaf-deep);
-}
-
-h1 {
-  font-size: clamp(2rem, 6vw, 2.6rem);
-  margin: 0;
-}
-
-h2 {
-  font-size: 1.35rem;
   margin: 0 0 0.75rem;
 }
 
-h3 {
+h1 {
+  margin: 0;
+}
+
+.heading {
+  position: relative;
+}
+
+/* Brand — italic Fraunces, coffee */
+.brand {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(2.15rem, 6.5vw, 2.85rem);
+  letter-spacing: -0.03em;
+  color: var(--coffee);
+  text-shadow: 0 1px 0 rgb(255 253 248 / 80%);
+}
+
+/* QR — Space Grotesk uppercase, leaf */
+.heading--qr {
+  font-family: var(--font-ui);
+  font-weight: 700;
   font-size: 1.05rem;
-  margin: 0 0 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--leaf);
+  margin-bottom: 0.35rem;
+}
+
+.heading--qr::after {
+  content: "";
+  display: block;
+  width: 2.75rem;
+  height: 3px;
+  margin-top: 0.45rem;
+  margin-inline: auto;
+  background: var(--leaf);
+  border-radius: 999px;
+}
+
+/* Order CTA — Fraunces, terracotta */
+.heading--order {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.55rem, 4vw, 1.9rem);
+  color: var(--terracotta);
+  margin-bottom: 0.35rem;
+}
+
+/* How to order — Playfair + mustard underline */
+.heading--steps {
+  font-family: var(--font-menu);
+  font-weight: 700;
+  font-size: clamp(1.45rem, 3.5vw, 1.75rem);
+  color: var(--coffee);
+  display: inline-block;
+  padding-bottom: 0.35rem;
+  border-bottom: 3px solid var(--mustard);
+  margin-bottom: 0.95rem;
+}
+
+/* Our menu — large Playfair, leaf, with side rules */
+.heading--menu {
+  font-family: var(--font-menu);
+  font-weight: 700;
+  font-size: clamp(1.7rem, 4.5vw, 2.15rem);
+  color: var(--leaf-deep);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.heading--menu::before,
+.heading--menu::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--mustard), transparent);
+}
+
+.heading--menu::before {
+  max-width: 2.5rem;
+}
+
+.heading--menu::after {
+  max-width: none;
+}
+
+/* Menu category ribbons — alternating cafe colours */
+.heading--category {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: -0.15rem -0.25rem 0.85rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  border-bottom: 0;
+  background: var(--leaf);
+  box-shadow: 0 3px 10px rgb(47 93 80 / 18%);
+}
+
+.menu-card:nth-child(3n + 1) .heading--category {
+  background: var(--leaf);
+}
+
+.menu-card:nth-child(3n + 2) .heading--category {
+  background: var(--terracotta);
+  box-shadow: 0 3px 10px rgb(179 75 46 / 18%);
+}
+
+.menu-card:nth-child(3n) .heading--category {
+  background: #8a6a1a;
+  box-shadow: 0 3px 10px rgb(138 106 26 / 18%);
 }
 
 p {
@@ -156,9 +262,6 @@ a:hover {
   color: var(--terracotta);
 }
 
-.brand {
-  letter-spacing: -0.03em;
-}
 
 .tagline {
   font-size: 1.08rem;
@@ -213,6 +316,10 @@ a:hover {
     text-align: left;
     gap: 1.25rem;
   }
+
+  .heading--qr::after {
+    margin-inline: 0;
+  }
 }
 
 .qr-print__figure {
@@ -236,9 +343,6 @@ a:hover {
   min-width: 0;
 }
 
-.qr-print__copy h2 {
-  margin-bottom: 0.35rem;
-}
 
 .qr-lead {
   margin-bottom: 0.4rem;
@@ -308,9 +412,6 @@ a:hover {
   color: var(--terracotta);
 }
 
-.cta-card h2 {
-  margin-bottom: 0.35rem;
-}
 
 .chef-line {
   margin-bottom: 1rem;
@@ -516,9 +617,6 @@ a:hover {
   margin-bottom: 0.85rem;
 }
 
-.menu-heading-row h2 {
-  margin-bottom: 0.2rem;
-}
 
 .menu-hint {
   margin: 0;
@@ -606,12 +704,6 @@ a:hover {
   scroll-margin-top: 1rem;
 }
 
-.menu-card > h3,
-.menu-card > h2 {
-  margin-bottom: 0.65rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--mustard);
-}
 
 .menu-card ul {
   margin: 0;

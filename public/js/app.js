@@ -202,6 +202,7 @@ function renderCategories(categories, currency) {
 
     const heading = document.createElement("h3");
     heading.id = headingId;
+    heading.className = "heading heading--category";
     heading.textContent = cat.name;
     section.appendChild(heading);
 
