@@ -28,7 +28,7 @@ Business copy, hours, payment text, and contact links also live in `menu.json` u
 
 ### Deployment accounts
 
-The GitHub repository lives under **Karan-Gupta-00** (`Karan-Gupta-00/hello-kkt-kitchen`). The Vercel production project is under **karan650gg** (`karan650gg/hello-kkt-kitchen`). Push-to-deploy only works when the Vercel project is linked to that GitHub repo: run `npx vercel git connect` with Root Directory **`public`**. For a one-off production deploy without Git integration, use `cd public && npx vercel --prod`.
+GitHub: **karan650gg/hello-kkt-kitchen**. Vercel: **karan650gg/hello-kkt-kitchen**. For push-to-deploy, run `npx vercel git connect` with Root Directory **`public`**. One-off production deploy: `npx vercel --prod` from the repo root (project already linked).
 
 ## After the first deploy: `baseUrl` and QR
 
