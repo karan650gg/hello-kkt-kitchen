@@ -29,36 +29,89 @@
     <div id="error-banner" hidden role="alert"></div>
 
     <header class="site-header">
-      <h1 class="brand">KKT kitchen.</h1>
+      <div class="brand-row">
+        <img
+          class="brand-mark"
+          src="/assets/favicon.svg"
+          width="48"
+          height="48"
+          alt=""
+          aria-hidden="true"
+        />
+        <div>
+          <p class="eyebrow">Welcome to</p>
+          <h1 class="brand">KKT kitchen.</h1>
+        </div>
+      </div>
       <p class="tagline">
-        Your favourites, all in one place. Browse the menu then speak with Chef James to place your order.
+        Fresh favourites from Chef James. Browse the menu, then place your order by call, text, or WhatsApp.
       </p>
       <p id="hours-badge" class="hours-badge" aria-label="Opening hours"></p>
     </header>
 
-    <section id="order-cta" class="cta-card" aria-labelledby="order-cta-heading">
-      <h2 id="order-cta-heading">Order with Chef James</h2>
-      <p class="payment-instruction"></p>
-      <div class="pay-how-to">
-        <h3>How to pay</h3>
-        <ul class="pay-how-to-list"></ul>
+    <section id="qr-section" class="qr-print" aria-labelledby="qr-section-heading">
+      <div class="qr-print__layout">
+        <figure class="qr-print__figure">
+          <img
+            id="qr-img"
+            src="/assets/qr/menu-qr.svg"
+            alt="QR code linking to the KKT kitchen digital menu"
+            width="168"
+            height="168"
+          />
+          <figcaption class="visually-hidden">
+            Scan to view the menu, check availability, or contact Chef James. This QR stays valid while the public menu URL is active.
+          </figcaption>
+        </figure>
+        <div class="qr-print__copy">
+          <h2 id="qr-section-heading">Scan for the menu</h2>
+          <p class="qr-lead">
+            Scan to view the menu, check availability, or contact Chef James.
+          </p>
+          <p class="qr-note">
+            This QR stays valid while the public menu URL is active — print it once for tables and packaging.
+          </p>
+          <p class="qr-downloads">
+            <a class="qr-download" href="/assets/qr/menu-qr.svg" download="kkt-kitchen-menu-qr.svg"
+              >Download SVG</a
+            >
+            <a class="qr-download" href="/assets/qr/menu-qr.png" download="kkt-kitchen-menu-qr.png"
+              >Download PNG</a
+            >
+          </p>
+        </div>
       </div>
+    </section>
+
+    <section id="order-cta" class="cta-card" aria-labelledby="order-cta-heading">
+      <p class="cta-kicker">Ready to order?</p>
+      <h2 id="order-cta-heading">Talk to Chef James</h2>
       <p class="chef-line">Chef James · +91 8778237926</p>
       <div id="contact-buttons" class="contact-buttons">
+        <a
+          class="contact-btn contact-btn--whatsapp"
+          href="https://wa.me/918778237926?text=Hello%20Chef%20James%2C%20I%20would%20like%20to%20check%20availability%20and%20place%20an%20order."
+          target="_blank"
+          rel="noopener noreferrer"
+          >WhatsApp Chef James</a
+        >
         <a class="contact-btn contact-btn--call" href="tel:+918778237926">Call Chef James</a>
         <a
           class="contact-btn contact-btn--sms"
           href="sms:+918778237926?body=Hello%20Chef%20James%2C%20I%20would%20like%20to%20place%20an%20order."
           >Send a text</a
         >
-        <a
-          class="contact-btn contact-btn--whatsapp"
-          href="https://wa.me/918778237926?text=Hello%20Chef%20James%2C%20I%20would%20like%20to%20check%20availability%20and%20place%20an%20order."
-          target="_blank"
-          rel="noopener noreferrer"
-          >Message on WhatsApp</a
-        >
       </div>
+      <div class="pay-panel">
+        <p class="payment-instruction"></p>
+        <details class="pay-how-to">
+          <summary>How to pay</summary>
+          <ul class="pay-how-to-list"></ul>
+        </details>
+      </div>
+      <p class="jump-menu">
+        <a href="#menu">Jump to full menu ↓</a>
+      </p>
     </section>
 
     <section id="how-to-order" class="how-to-order" aria-labelledby="how-to-order-heading">
@@ -66,47 +119,30 @@
       <ol id="order-steps" class="order-steps"></ol>
     </section>
 
-    <main class="menu-main">
-      <h2 class="visually-hidden">Menu</h2>
+    <main id="menu" class="menu-main">
+      <div class="menu-heading-row">
+        <h2>Our menu</h2>
+        <p class="menu-hint">Prices in Rs · Confirm final price with the chef</p>
+      </div>
       <nav id="category-nav" class="category-nav" aria-label="Menu categories"></nav>
       <div id="menu-sections" class="menu-sections"></div>
     </main>
 
-    <section id="qr-section" class="qr-print" aria-labelledby="qr-section-heading">
-      <h2 id="qr-section-heading">Menu QR code</h2>
-      <figure>
-        <img
-          id="qr-img"
-          src="/assets/qr/menu-qr.svg"
-          alt="QR code linking to the KKT kitchen digital menu"
-          width="200"
-          height="200"
-        />
-        <figcaption>
-          Scan to view the menu, check availability, or contact Chef James. This QR stays valid while the public menu URL is active.
-        </figcaption>
-      </figure>
-      <p class="qr-downloads">
-        <a class="qr-download" href="/assets/qr/menu-qr.svg" download="kkt-kitchen-menu-qr.svg">Download SVG</a>
-        <a class="qr-download" href="/assets/qr/menu-qr.png" download="kkt-kitchen-menu-qr.png">Download PNG</a>
-      </p>
-    </section>
-
     <footer class="site-footer">
-      <p>Questions or orders? Reach Chef James on +91 8778237926.</p>
+      <p>Hungry? Message Chef James anytime between 9:00 AM and 11:00 PM.</p>
       <div id="sticky-contact" class="sticky-bar">
-        <a class="contact-btn contact-btn--call" href="tel:+918778237926">Call Chef James</a>
-        <a
-          class="contact-btn contact-btn--sms"
-          href="sms:+918778237926?body=Hello%20Chef%20James%2C%20I%20would%20like%20to%20place%20an%20order."
-          >Send a text</a
-        >
         <a
           class="contact-btn contact-btn--whatsapp"
           href="https://wa.me/918778237926?text=Hello%20Chef%20James%2C%20I%20would%20like%20to%20check%20availability%20and%20place%20an%20order."
           target="_blank"
           rel="noopener noreferrer"
-          >Message on WhatsApp</a
+          >WhatsApp</a
+        >
+        <a class="contact-btn contact-btn--call" href="tel:+918778237926">Call</a>
+        <a
+          class="contact-btn contact-btn--sms"
+          href="sms:+918778237926?body=Hello%20Chef%20James%2C%20I%20would%20like%20to%20place%20an%20order."
+          >Text</a
         >
       </div>
     </footer>

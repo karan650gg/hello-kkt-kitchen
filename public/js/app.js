@@ -57,6 +57,12 @@ function ensureContactButtons(container, links) {
 
   const specs = [
     {
+      modifier: "contact-btn--whatsapp",
+      href: links.whatsapp || FALLBACK_CONTACT_LINKS.whatsapp,
+      label: "WhatsApp Chef James",
+      external: true
+    },
+    {
       modifier: "contact-btn--call",
       href: links.tel || FALLBACK_CONTACT_LINKS.tel,
       label: "Call Chef James",
@@ -67,12 +73,6 @@ function ensureContactButtons(container, links) {
       href: links.sms || FALLBACK_CONTACT_LINKS.sms,
       label: "Send a text",
       external: false
-    },
-    {
-      modifier: "contact-btn--whatsapp",
-      href: links.whatsapp || FALLBACK_CONTACT_LINKS.whatsapp,
-      label: "Message on WhatsApp",
-      external: true
     }
   ];
 
