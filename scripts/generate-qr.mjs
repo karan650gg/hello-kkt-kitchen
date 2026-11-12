@@ -29,7 +29,9 @@ function readBaseUrl() {
 }
 
 const base = readBaseUrl();
-const target = `${base}/menu`;
+// Encode the production origin only (shortest shareable URL).
+// `/` permanently redirects to `/menu/` on Vercel.
+const target = base;
 fs.mkdirSync(outDir, { recursive: true });
 await QRCode.toFile(path.join(outDir, "menu-qr.svg"), target, { type: "svg", margin: 2, width: 512 });
 await QRCode.toFile(path.join(outDir, "menu-qr.png"), target, { type: "png", margin: 2, width: 1024 });

@@ -144,7 +144,7 @@ function wireQrSection() {
       : "";
 
   if (qrSection && baseUrl) {
-    qrSection.dataset.menuUrl = `${baseUrl}/menu`;
+    qrSection.dataset.menuUrl = baseUrl;
   }
 
   const qrImg = document.getElementById("qr-img");

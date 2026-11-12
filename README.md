@@ -1,6 +1,6 @@
 # hello-kkt-kitchen
 
-Mobile-first digital menu for **KKT kitchen**. Printed and shared QR codes open the public **`/menu`** page in the browser—they do not dial Chef James directly.
+Mobile-first digital menu for **KKT kitchen**. Printed and shared QR codes open **`https://hello-kkt-kitchen.vercel.app`** (which redirects to the menu)—they do not dial Chef James directly.
 
 ## Local preview
 
@@ -24,7 +24,7 @@ Business copy, hours, payment text, and contact links also live in `menu.json` u
 3. **Root Directory:** set to **`public`**. The site files (`menu/`, `data/`, `assets/`, etc.) live under `public/`; there is no `outputDirectory`—the root directory *is* the deploy root.
 4. Leave **Build Command** empty and **Output Directory** empty.
 5. [`public/vercel.json`](public/vercel.json) configures production behavior (permanent `/` → `/menu/` redirect and short cache on `/data/*`). With Root Directory set to **`public`**, Vercel reads `vercel.json` from that folder—not the repository root.
-6. Deploy. Confirm **`https://hello-kkt-kitchen.vercel.app/menu/`** (or your assigned URL) loads the menu.
+6. Deploy. Confirm **`https://hello-kkt-kitchen.vercel.app`** opens the menu (via `/` → `/menu/`).
 
 ### Deployment accounts
 
@@ -43,13 +43,14 @@ GitHub: **karan650gg/hello-kkt-kitchen**. Vercel: **karan650gg/hello-kkt-kitchen
 
 3. Commit the updated `config.js` and `public/assets/qr/*`, then redeploy.
 
-QR files encode **`{baseUrl}/menu`** (no trailing slash). Download links on the menu page point at the generated SVG/PNG.
+QR files encode **`{baseUrl}`** only (shortest shareable URL, no trailing slash). `/` redirects to `/menu/` in production. Download links on the menu page point at the generated SVG/PNG.
 
 ## Permanent URL and redirects
 
 - Keep a **stable** Vercel project name or attach a **custom domain** so printed QR codes stay valid.
-- The menu URL customers should use is **`/menu`** (and `/` redirects to `/menu/` in production).
-- If the public hostname ever changes, add a **redirect from the old origin to the new `/menu/`** (Vercel project/domain settings or `vercel.json` on the old host) so existing printed codes keep working without reprinting.
+- Share **`https://hello-kkt-kitchen.vercel.app`** (or your custom domain). `/menu/` still works for older links.
+- If the public hostname ever changes, add a **redirect from the old origin to the new site** so existing printed codes keep working without reprinting.
+- Want a cleaner name (e.g. `hello-kkt-kitchen.com`)? Buy the domain and add it in the Vercel project → Domains, then update `baseUrl` and re-run `npm run generate:qr`.
 
 ## QR workflow (summary)
 
