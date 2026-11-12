@@ -1,17 +1,34 @@
 :root {
-  --ivory: #f7f1e8;
-  --ivory-deep: #efe6d8;
-  --coffee: #3b2a1f;
-  --terracotta: #b34b2e;
-  --mustard: #c99212;
-  --leaf: #2f5d50;
-  --leaf-deep: #1e3d35;
-  --card: #fffdf8;
-  --border: #e4d8c8;
+  /* Food-menu palette: herb primary + chili secondary */
+  --color-primary: #2f5d50;
+  --color-primary-dark: #1e3d35;
+  --color-primary-soft: #e7f0ec;
+  --color-secondary: #c45c26;
+  --color-secondary-dark: #9a4318;
+  --color-secondary-soft: #f8ebe4;
+  --color-ink: #3b2a1f;
+  --color-muted: #6b5748;
+  --color-surface: #f7f1e8;
+  --color-surface-deep: #efe6d8;
+  --color-card: #fffdf8;
+  --color-border: #e4d8c8;
+  --color-on-primary: #ffffff;
+
+  /* Legacy aliases (keep existing rules stable while migrating) */
+  --ivory: var(--color-surface);
+  --ivory-deep: var(--color-surface-deep);
+  --coffee: var(--color-ink);
+  --terracotta: var(--color-secondary);
+  --mustard: var(--color-secondary);
+  --leaf: var(--color-primary);
+  --leaf-deep: var(--color-primary-dark);
+  --card: var(--color-card);
+  --border: var(--color-border);
+
   --radius: 16px;
   --font-display: "Fraunces", "Palatino Linotype", Palatino, serif;
   --font-menu: "Playfair Display", Georgia, serif;
-  --font-ui: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-ui: "Source Sans 3", "Segoe UI", sans-serif;
   --font-body: "Source Sans 3", "Segoe UI", sans-serif;
   --shadow: 0 8px 28px rgb(59 42 31 / 10%);
   --tap-min: 48px;
@@ -49,11 +66,11 @@ body {
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.55;
-  color: var(--coffee);
+  color: var(--color-ink);
   background:
-    radial-gradient(ellipse 120% 60% at 100% -10%, rgb(212 160 23 / 18%), transparent 55%),
-    radial-gradient(ellipse 90% 50% at -10% 20%, rgb(47 93 80 / 14%), transparent 50%),
-    linear-gradient(180deg, var(--ivory) 0%, var(--ivory-deep) 100%);
+    radial-gradient(ellipse 110% 55% at 100% -8%, rgb(196 92 38 / 12%), transparent 55%),
+    radial-gradient(ellipse 90% 50% at -10% 18%, rgb(47 93 80 / 14%), transparent 50%),
+    linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-deep) 100%);
 }
 
 @media (min-width: 48rem) {
@@ -81,59 +98,59 @@ h1 {
 
 .heading {
   position: relative;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-primary-dark);
 }
 
-/* Brand — italic Fraunces, coffee */
+/* Brand — primary ink */
 .brand {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 700;
   font-size: clamp(2.15rem, 6.5vw, 2.85rem);
   letter-spacing: -0.03em;
-  color: var(--coffee);
-  text-shadow: 0 1px 0 rgb(255 253 248 / 80%);
+  color: var(--color-primary-dark);
 }
 
-/* Order CTA — Fraunces, terracotta */
-.heading--order {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.55rem, 4vw, 1.9rem);
-  color: var(--terracotta);
-  margin-bottom: 0.35rem;
-}
-
-/* How to order — Playfair + mustard underline */
-.heading--steps {
-  font-family: var(--font-menu);
-  font-weight: 700;
-  font-size: clamp(1.45rem, 3.5vw, 1.75rem);
-  color: var(--coffee);
-  display: inline-block;
-  padding-bottom: 0.35rem;
-  border-bottom: 3px solid var(--mustard);
-  margin-bottom: 0.95rem;
-}
-
-/* Our menu — large Playfair, leaf, with side rules */
+/* Section titles — shared primary template */
+.heading--order,
+.heading--steps,
 .heading--menu {
   font-family: var(--font-menu);
   font-weight: 700;
-  font-size: clamp(1.7rem, 4.5vw, 2.15rem);
-  color: var(--leaf-deep);
-  letter-spacing: -0.02em;
+  font-size: clamp(1.45rem, 4vw, 1.85rem);
+  color: var(--color-primary-dark);
+  margin-bottom: 0.55rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 3px solid var(--color-secondary);
+}
+
+.heading--order {
   margin-bottom: 0.35rem;
+}
+
+.heading--steps {
+  display: inline-block;
+  margin-bottom: 0.95rem;
+}
+
+.heading--menu {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0.35rem;
 }
 
 .heading--menu::before,
 .heading--menu::after {
   content: "";
   flex: 1;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--mustard), transparent);
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
 }
 
 .heading--menu::before {
@@ -144,7 +161,7 @@ h1 {
   max-width: none;
 }
 
-/* Menu category ribbons — alternating cafe colours */
+/* Category bars — always primary */
 .heading--category {
   display: flex;
   align-items: center;
@@ -152,14 +169,14 @@ h1 {
   font-family: var(--font-ui);
   font-weight: 700;
   font-size: 0.92rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--color-on-primary);
   margin: 0 0 0.85rem;
   padding: 0.65rem 0.9rem;
   border-radius: 10px;
   border-bottom: 0;
-  background: var(--leaf);
+  background: var(--color-primary);
   box-shadow: 0 3px 10px rgb(47 93 80 / 18%);
 }
 
@@ -177,30 +194,16 @@ h1 {
   display: block;
 }
 
-.menu-card:nth-child(3n + 1) .heading--category {
-  background: var(--leaf);
-}
-
-.menu-card:nth-child(3n + 2) .heading--category {
-  background: var(--terracotta);
-  box-shadow: 0 3px 10px rgb(179 75 46 / 18%);
-}
-
-.menu-card:nth-child(3n) .heading--category {
-  background: #8a6a1a;
-  box-shadow: 0 3px 10px rgb(138 106 26 / 18%);
-}
-
 p {
   margin: 0 0 0.75rem;
 }
 
 a {
-  color: var(--leaf);
+  color: var(--color-primary);
 }
 
 a:hover {
-  color: var(--leaf-deep);
+  color: var(--color-primary-dark);
 }
 
 .visually-hidden {
@@ -219,8 +222,8 @@ a:hover {
   margin-bottom: 1rem;
   padding: 0.75rem 1rem;
   border-radius: var(--radius);
-  background: var(--terracotta);
-  color: #fff;
+  background: var(--color-secondary);
+  color: var(--color-on-primary);
   font-weight: 600;
 }
 
@@ -301,7 +304,7 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--terracotta);
+  color: var(--color-secondary);
 }
 
 
@@ -319,8 +322,8 @@ a:hover {
   padding: 0.45rem 0.9rem;
   font-size: 0.92rem;
   font-weight: 700;
-  color: #fff;
-  background: var(--leaf);
+  color: var(--color-on-primary);
+  background: var(--color-primary);
   border-radius: 999px;
   box-shadow: 0 4px 12px rgb(47 93 80 / 22%);
 }
@@ -412,8 +415,8 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #fff;
-  background: rgb(30 61 53 / 82%);
+  color: var(--color-on-primary);
+  background: var(--color-primary-dark);
   border-radius: 999px;
   backdrop-filter: blur(5px);
   box-shadow: 0 4px 14px rgb(30 61 53 / 25%);
@@ -459,8 +462,8 @@ a:hover {
 .cta-card {
   margin-bottom: 1.35rem;
   padding: 1.25rem 1.15rem 1.2rem;
-  background: linear-gradient(165deg, #fff8ef 0%, var(--card) 55%, #f3ebe0 100%);
-  border: 1px solid var(--border);
+  background: linear-gradient(165deg, var(--color-secondary-soft) 0%, var(--color-card) 55%, var(--color-primary-soft) 100%);
+  border: 1px solid var(--color-border);
   border-radius: calc(var(--radius) + 4px);
   box-shadow: var(--shadow);
 }
@@ -471,7 +474,7 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--terracotta);
+  color: var(--color-secondary);
 }
 
 
@@ -518,7 +521,7 @@ a:hover {
 }
 
 .contact-btn:focus-visible {
-  outline: 3px solid var(--mustard);
+  outline: 3px solid var(--color-secondary);
   outline-offset: 2px;
 }
 
@@ -528,37 +531,33 @@ a:hover {
   }
 }
 
+.contact-btn--whatsapp,
+.contact-btn--call {
+  order: 0;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  box-shadow: 0 6px 16px rgb(47 93 80 / 24%);
+}
+
 .contact-btn--whatsapp {
   order: -1;
-  background: #1f6b4a;
-  color: #fff;
-  box-shadow: 0 6px 16px rgb(31 107 74 / 28%);
 }
 
-.contact-btn--whatsapp:hover {
-  background: var(--leaf-deep);
-  color: #fff;
-}
-
-.contact-btn--call {
-  background: var(--leaf);
-  color: #fff;
-}
-
+.contact-btn--whatsapp:hover,
 .contact-btn--call:hover {
-  background: var(--leaf-deep);
-  color: #fff;
+  background: var(--color-primary-dark);
+  color: var(--color-on-primary);
 }
 
 .contact-btn--sms {
-  background: var(--card);
-  color: var(--coffee);
-  border-color: rgb(59 42 31 / 35%);
+  background: var(--color-secondary-soft);
+  color: var(--color-secondary-dark);
+  border-color: var(--color-secondary);
 }
 
 .contact-btn--sms:hover {
-  background: var(--coffee);
-  color: #fff;
+  background: var(--color-secondary);
+  color: var(--color-on-primary);
 }
 
 .pay-panel {
@@ -572,7 +571,7 @@ a:hover {
   margin-bottom: 0.55rem;
   font-size: 1.02rem;
   font-weight: 700;
-  color: var(--leaf-deep);
+  color: var(--color-primary-dark);
 }
 
 .pay-how-to {
@@ -582,7 +581,7 @@ a:hover {
 .pay-how-to summary {
   cursor: pointer;
   font-weight: 700;
-  color: var(--terracotta);
+  color: var(--color-secondary);
   list-style: none;
 }
 
@@ -665,8 +664,8 @@ a:hover {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.78rem;
-  color: #fff;
-  background: var(--mustard);
+  color: var(--color-on-primary);
+  background: var(--color-primary);
   border-radius: 50%;
 }
 
@@ -689,8 +688,8 @@ a:hover {
 .category-picker {
   margin-bottom: 1.25rem;
   padding: 0.95rem 1rem 1.05rem;
-  background: linear-gradient(165deg, #fff8ef 0%, #fffdf8 100%);
-  border: 2px solid var(--leaf);
+  background: var(--color-primary-soft);
+  border: 2px solid var(--color-primary);
   border-radius: calc(var(--radius) + 2px);
   box-shadow: 0 6px 18px rgb(47 93 80 / 14%);
 }
@@ -705,7 +704,7 @@ a:hover {
   font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 0.02em;
-  color: var(--leaf-deep);
+  color: var(--color-primary-dark);
 }
 
 .category-picker__control {
@@ -719,8 +718,8 @@ a:hover {
   right: 1.15rem;
   width: 0.55rem;
   height: 0.55rem;
-  border-right: 2.5px solid var(--leaf-deep);
-  border-bottom: 2.5px solid var(--leaf-deep);
+  border-right: 2.5px solid var(--color-primary-dark);
+  border-bottom: 2.5px solid var(--color-primary-dark);
   transform: translateY(-65%) rotate(45deg);
   pointer-events: none;
 }
@@ -734,20 +733,20 @@ a:hover {
   font-family: var(--font-body);
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--leaf-deep);
-  background: #fff;
-  border: 2px solid var(--mustard);
+  color: var(--color-primary-dark);
+  background: var(--color-card);
+  border: 2px solid var(--color-secondary);
   border-radius: 999px;
   box-shadow: 0 3px 12px rgb(59 42 31 / 8%);
   cursor: pointer;
 }
 
 .category-select:hover {
-  border-color: var(--leaf);
+  border-color: var(--color-primary);
 }
 
 .category-select:focus-visible {
-  outline: 3px solid var(--mustard);
+  outline: 3px solid var(--color-secondary);
   outline-offset: 2px;
 }
 
@@ -795,7 +794,7 @@ a:hover {
   flex-shrink: 0;
   font-variant-numeric: tabular-nums;
   font-weight: 700;
-  color: var(--leaf-deep);
+  color: var(--color-primary-dark);
 }
 
 .menu-row .price,
