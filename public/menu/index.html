@@ -29,41 +29,45 @@
     <div id="error-banner" hidden role="alert"></div>
 
     <header class="site-header">
-      <div class="header-top">
-        <div class="brand-row">
-          <img
-            class="brand-mark"
-            src="/assets/favicon.svg"
-            width="48"
-            height="48"
-            alt=""
-            aria-hidden="true"
-          />
-          <div>
-            <p class="eyebrow">Welcome to</p>
-            <h1 class="brand">KKT kitchen.</h1>
+      <div class="header-main">
+        <div class="header-copy">
+          <div class="brand-row">
+            <img
+              class="brand-mark"
+              src="/assets/favicon.svg"
+              width="48"
+              height="48"
+              alt=""
+              aria-hidden="true"
+            />
+            <div>
+              <p class="eyebrow">Welcome to</p>
+              <h1 class="brand">KKT kitchen.</h1>
+            </div>
           </div>
+          <p class="tagline">
+            Fresh favourites from Chef James. Browse the menu, then place your order by call or WhatsApp.
+          </p>
+          <p id="hours-badge" class="hours-badge" aria-label="Opening hours"></p>
         </div>
         <aside id="qr-section" class="header-qr" aria-label="Menu QR code">
-          <a class="header-qr__link" href="/assets/qr/menu-qr.png" download="kkt-kitchen-menu-qr.png" title="Download menu QR">
-            <img
-              id="qr-img"
-              src="/assets/qr/menu-qr.svg"
-              alt="QR code for the KKT kitchen menu"
-              width="264"
-              height="264"
-            />
-          </a>
-          <p class="header-qr__actions">
-            <a class="qr-download" href="/assets/qr/menu-qr.svg" download="kkt-kitchen-menu-qr.svg">SVG</a>
-            <a class="qr-download" href="/assets/qr/menu-qr.png" download="kkt-kitchen-menu-qr.png">PNG</a>
-          </p>
+          <div class="header-qr__card">
+            <a class="header-qr__link" href="/assets/qr/menu-qr.png" download="kkt-kitchen-menu-qr.png" title="Download menu QR">
+              <img
+                id="qr-img"
+                src="/assets/qr/menu-qr.svg"
+                alt="QR code for the KKT kitchen menu"
+                width="176"
+                height="176"
+              />
+            </a>
+            <p class="header-qr__actions">
+              <a class="qr-download" href="/assets/qr/menu-qr.svg" download="kkt-kitchen-menu-qr.svg">SVG</a>
+              <a class="qr-download" href="/assets/qr/menu-qr.png" download="kkt-kitchen-menu-qr.png">PNG</a>
+            </p>
+          </div>
         </aside>
       </div>
-      <p class="tagline">
-        Fresh favourites from Chef James. Browse the menu, then place your order by call or WhatsApp.
-      </p>
-      <p id="hours-badge" class="hours-badge" aria-label="Opening hours"></p>
     </header>
 
     <section class="food-collage" aria-label="Kitchen favourites">
