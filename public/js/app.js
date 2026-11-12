@@ -51,17 +51,18 @@ function hideError() {
 function ensureContactButtons(container, links) {
   if (!container) return;
 
+  const sticky = container.id === "sticky-contact";
   const specs = [
     {
       modifier: "contact-btn--whatsapp",
       href: links.whatsapp || FALLBACK_CONTACT_LINKS.whatsapp,
-      label: "WhatsApp Chef James",
+      label: sticky ? "WhatsApp" : "WhatsApp Chef James",
       external: true
     },
     {
       modifier: "contact-btn--call",
       href: links.tel || FALLBACK_CONTACT_LINKS.tel,
-      label: "Call Chef James",
+      label: sticky ? "Call" : "Call Chef James",
       external: false
     }
   ];
@@ -71,9 +72,9 @@ function ensureContactButtons(container, links) {
     if (!anchor) {
       anchor = document.createElement("a");
       anchor.className = `contact-btn ${spec.modifier}`;
-      anchor.textContent = spec.label;
       container.appendChild(anchor);
     }
+    anchor.textContent = spec.label;
     anchor.setAttribute("href", spec.href);
     if (spec.external) {
       anchor.setAttribute("target", "_blank");
