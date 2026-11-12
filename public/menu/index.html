@@ -66,19 +66,18 @@
       <p id="hours-badge" class="hours-badge" aria-label="Opening hours"></p>
     </header>
 
-    <section class="food-showcase" aria-label="Kitchen favourites">
-      <figure class="food-showcase__hero">
-        <img
-          src="/assets/food/hero-dosa.jpg"
-          alt="Crispy masala dosa with chutney and sambar"
-          width="1200"
-          height="675"
-          fetchpriority="high"
-        />
-        <figcaption class="food-showcase__caption">Fresh off the tawa</figcaption>
-      </figure>
-      <div class="food-showcase__grid">
-        <figure>
+    <section class="food-collage" aria-label="Kitchen favourites">
+      <div class="food-collage__frame">
+        <figure class="food-collage__tile food-collage__tile--hero">
+          <img
+            src="/assets/food/hero-dosa.jpg"
+            alt="Crispy masala dosa with chutney and sambar"
+            width="1200"
+            height="675"
+            fetchpriority="high"
+          />
+        </figure>
+        <figure class="food-collage__tile food-collage__tile--coffee">
           <img
             src="/assets/food/hero-coffee.jpg"
             alt="Hot filter coffee in a steel tumbler"
@@ -86,9 +85,8 @@
             height="900"
             loading="lazy"
           />
-          <figcaption>Filter coffee</figcaption>
         </figure>
-        <figure>
+        <figure class="food-collage__tile food-collage__tile--biryani">
           <img
             src="/assets/food/hero-biryani.jpg"
             alt="Aromatic biryani served in a copper bowl"
@@ -96,9 +94,8 @@
             height="900"
             loading="lazy"
           />
-          <figcaption>Biryani bowls</figcaption>
         </figure>
-        <figure>
+        <figure class="food-collage__tile food-collage__tile--snacks">
           <img
             src="/assets/food/hero-snacks.jpg"
             alt="Crispy fries and chilli chicken snacks"
@@ -106,8 +103,8 @@
             height="900"
             loading="lazy"
           />
-          <figcaption>Evening snacks</figcaption>
         </figure>
+        <p class="food-collage__badge">Made fresh · Chef James</p>
       </div>
     </section>
 

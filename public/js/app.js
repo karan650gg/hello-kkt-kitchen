@@ -162,30 +162,20 @@ function wireQrSection() {
   }
 }
 
-const CATEGORY_VISUALS = {
-  "hot-beverages": { glyph: "cup", image: "/assets/food/hero-coffee.jpg", alt: "Hot filter coffee" },
-  "fresh-juice": { glyph: "glass", image: "/assets/food/hero-coffee.jpg", alt: "Fresh juice vibes" },
-  milkshake: { glyph: "shake", image: "/assets/food/hero-coffee.jpg", alt: "Creamy shake" },
-  breakfast: { glyph: "dosa", image: "/assets/food/hero-dosa.jpg", alt: "Breakfast dosa" },
-  rice: { glyph: "bowl", image: "/assets/food/hero-biryani.jpg", alt: "Rice and biryani" },
-  egg: { glyph: "egg", image: "/assets/food/hero-snacks.jpg", alt: "Egg favourites" },
-  breads: { glyph: "bread", image: "/assets/food/hero-dosa.jpg", alt: "Fresh breads" },
-  "veg-curry": { glyph: "leaf", image: "/assets/food/hero-biryani.jpg", alt: "Veg curry" },
-  "non-veg-curry": { glyph: "flame", image: "/assets/food/hero-biryani.jpg", alt: "Non-veg curry" },
-  snacks: { glyph: "fries", image: "/assets/food/hero-snacks.jpg", alt: "Snacks platter" },
-  noodles: { glyph: "noodles", image: "/assets/food/hero-snacks.jpg", alt: "Noodles bowl" },
-  lassi: { glyph: "lassi", image: "/assets/food/hero-coffee.jpg", alt: "Chilled lassi" }
+const CATEGORY_GLYPHS = {
+  "hot-beverages": "cup",
+  "fresh-juice": "glass",
+  milkshake: "shake",
+  breakfast: "dosa",
+  rice: "bowl",
+  egg: "egg",
+  breads: "bread",
+  "veg-curry": "leaf",
+  "non-veg-curry": "flame",
+  snacks: "fries",
+  noodles: "noodles",
+  lassi: "lassi"
 };
-
-function categoryVisual(catId) {
-  return (
-    CATEGORY_VISUALS[catId] || {
-      glyph: "bowl",
-      image: "/assets/food/hero-dosa.jpg",
-      alt: "KKT kitchen favourite"
-    }
-  );
-}
 
 function categoryGlyphSvg(glyph) {
   const paths = {
@@ -225,7 +215,7 @@ function renderCategories(categories, currency) {
   categories.forEach((cat) => {
     const sectionId = `cat-${cat.id}`;
     const headingId = `cat-heading-${cat.id}`;
-    const visual = categoryVisual(cat.id);
+    const glyph = CATEGORY_GLYPHS[cat.id] || "bowl";
 
     const option = document.createElement("option");
     option.value = sectionId;
@@ -237,29 +227,17 @@ function renderCategories(categories, currency) {
     section.className = "menu-card";
     section.setAttribute("aria-labelledby", headingId);
 
-    const media = document.createElement("div");
-    media.className = "menu-card__media";
-    const img = document.createElement("img");
-    img.src = visual.image;
-    img.alt = visual.alt;
-    img.width = 640;
-    img.height = 360;
-    img.loading = "lazy";
-    img.decoding = "async";
-    media.appendChild(img);
-
     const heading = document.createElement("h3");
     heading.id = headingId;
     heading.className = "heading heading--category";
     const icon = document.createElement("span");
     icon.className = "heading--category__icon";
     icon.setAttribute("aria-hidden", "true");
-    icon.innerHTML = categoryGlyphSvg(visual.glyph);
+    icon.innerHTML = categoryGlyphSvg(glyph);
     const label = document.createElement("span");
     label.textContent = cat.name;
     heading.appendChild(icon);
     heading.appendChild(label);
-    section.appendChild(media);
     section.appendChild(heading);
 
     const ul = document.createElement("ul");
