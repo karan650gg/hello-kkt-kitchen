@@ -549,17 +549,6 @@ a:hover {
   color: var(--color-on-primary);
 }
 
-.contact-btn--sms {
-  background: var(--color-secondary-soft);
-  color: var(--color-secondary-dark);
-  border-color: var(--color-secondary);
-}
-
-.contact-btn--sms:hover {
-  background: var(--color-secondary);
-  color: var(--color-on-primary);
-}
-
 .pay-panel {
   padding: 0.9rem 1rem;
   background: rgb(255 255 255 / 65%);

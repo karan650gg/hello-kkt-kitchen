@@ -15,7 +15,6 @@
   },
   "contactLinks": {
     "tel": "tel:+918778237926",
-    "sms": "sms:+918778237926?body=Hello%20Chef%20James%2C%20I%20would%20like%20to%20place%20an%20order.",
     "whatsapp": "https://wa.me/918778237926?text=Hello%20Chef%20James%2C%20I%20would%20like%20to%20check%20availability%20and%20place%20an%20order."
   },
   "orderSteps": [

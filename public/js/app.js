@@ -13,7 +13,6 @@ const FALLBACK_BUSINESS = {
 
 const FALLBACK_CONTACT_LINKS = {
   tel: "tel:+918778237926",
-  sms: "sms:+918778237926?body=Hello%20Chef%20James%2C%20I%20would%20like%20to%20place%20an%20order.",
   whatsapp:
     "https://wa.me/918778237926?text=Hello%20Chef%20James%2C%20I%20would%20like%20to%20check%20availability%20and%20place%20an%20order."
 };
@@ -63,12 +62,6 @@ function ensureContactButtons(container, links) {
       modifier: "contact-btn--call",
       href: links.tel || FALLBACK_CONTACT_LINKS.tel,
       label: "Call Chef James",
-      external: false
-    },
-    {
-      modifier: "contact-btn--sms",
-      href: links.sms || FALLBACK_CONTACT_LINKS.sms,
-      label: "Send a text",
       external: false
     }
   ];
@@ -355,7 +348,7 @@ async function init() {
     renderMenu(data);
   } catch (err) {
     showError(
-      "We could not load the menu right now. You can still call, text, or WhatsApp Chef James using the buttons below."
+      "We could not load the menu right now. You can still call or WhatsApp Chef James using the buttons below."
     );
     renderFallbackContacts();
   }
