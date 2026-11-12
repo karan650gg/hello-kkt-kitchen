@@ -1,0 +1,13 @@
+{
+  "name": "hello-kkt-kitchen",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Mobile-first digital menu for KKT kitchen",
+  "scripts": {
+    "generate:qr": "node scripts/generate-qr.mjs",
+    "preview": "npx --yes serve public -p 4173"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "business": {
+    "name": "KKT kitchen",
+    "tagline": "Your favourites, all in one place. Browse the menu then speak with Chef James to place your order.",
+    "chef": "Chef James",
+    "phoneDisplay": "+91 8778237926",
+    "hours": "9:00 AM - 11:00 PM daily",
+    "currency": "Rs",
+    "paymentInstruction": "Pay to confirm your order after finalising it with the chef.",
+    "payHowTo": [
+      "Pay online (UPI) to Chef James on +91 8778237926 — the same number used for calls and WhatsApp.",
+      "After paying, send the payment screenshot on WhatsApp so the chef can confirm your order."
+    ]
+  },
+  "contactLinks": {
+    "tel": "tel:+918778237926",
+    "sms": "sms:+918778237926?body=Hello%20Chef%20James%2C%20I%20would%20like%20to%20place%20an%20order.",
+    "whatsapp": "https://wa.me/918778237926?text=Hello%20Chef%20James%2C%20I%20would%20like%20to%20check%20availability%20and%20place%20an%20order."
+  },
+  "orderSteps": [
+    { "n": "01", "title": "Review the menu" },
+    { "n": "02", "title": "Contact Chef James" },
+    { "n": "03", "title": "Confirm availability & final order" },
+    { "n": "04", "title": "Pay to confirm" }
+  ],
+  "categories": [
+    {
+      "id": "hot-beverages",
+      "name": "Hot Beverages",
+      "items": [
+        { "name": "Milk Tea", "price": 30 },
+        { "name": "Black Tea", "price": 20 },
+        { "name": "Milk Coffee", "price": 40 },
+        { "name": "Black Coffee", "price": 30 }
+      ]
+    },
+    {
+      "id": "fresh-juice",
+      "name": "Fresh Juice",
+      "items": [
+        { "name": "Pineapple", "price": 120 },
+        { "name": "Orange", "price": 120 },
+        { "name": "Watermelon", "price": 100 }
+      ]
+    },
+    {
+      "id": "milkshake",
+      "name": "Milkshake",
+      "items": [
+        { "name": "Banana", "price": 120 },
+        { "name": "Chocolate", "price": 150 }
+      ]
+    },
+    {
+      "id": "breakfast",
+      "name": "Breakfast",
+      "items": [
+        { "name": "Plain Dosa", "price": 70 },
+        { "name": "Masala Dosa", "price": 100 },
+        { "name": "Egg Dosa", "price": 130 },
+        { "name": "Aloo Paratha", "price": 100 },
+        { "name": "Onion Paratha", "price": 130 },
+        { "name": "Egg Paratha", "price": 130 },
+        { "name": "Poha", "price": 100 },
+        { "name": "Pancakes — Banana", "price": 100 },
+        { "name": "Pancakes — Nutella", "price": 130 },
+        { "name": "Pancakes — Chocolate", "price": 120 },
+        { "name": "Toast — French", "price": 150 },
+        { "name": "Toast — Butter", "price": 80 },
+        { "name": "Toast — Plain", "price": 40 },
+        { "name": "Scrambled Egg with Toast", "price": 130 },
+        { "name": "Puri Bhaji", "price": 100 },
+        { "name": "Muesli", "price": 150 },
+        { "name": "Bread Omelette", "price": 100 }
+      ]
+    },
+    {
+      "id": "rice",
+      "name": "Rice Items",
+      "items": [
+        { "name": "Veg Biryani", "price": 160 },
+        { "name": "Egg Biryani", "price": 170 },
+        { "name": "Chicken Biryani", "price": 200 },
+        { "name": "Veg Fried Rice", "price": 150 },
+        { "name": "Egg Fried Rice", "price": 160 },
+        { "name": "Chicken Fried Rice", "price": 180 },
+        { "name": "Ghee Rice", "price": 140 },
+        { "name": "Jeera Rice", "price": 100 }
+      ]
+    },
+    {
+      "id": "egg",
+      "name": "Egg Items",
+      "items": [
+        { "name": "Egg Curry", "price": 150 },
+        { "name": "Egg Bhurji", "price": 100 },
+        { "name": "Boiled Egg", "price": 40 },
+        { "name": "Egg Curry with Rice", "price": 250 }
+      ]
+    },
+    {
+      "id": "breads",
+      "name": "Breads",
+      "items": [
+        { "name": "Chapati", "price": 15 },
+        { "name": "Kerala Paratha", "price": 20 }
+      ]
+    },
+    {
+      "id": "veg-curry",
+      "name": "Veg Curry",
+      "items": [
+        { "name": "Veg Curry", "price": 150 },
+        { "name": "Kadai Veg", "price": 160 },
+        { "name": "Aloo Gobi", "price": 150 },
+        { "name": "Aloo Mutter", "price": 150 },
+        { "name": "Dal Fry", "price": 130 },
+        { "name": "Dal Tadka", "price": 140 }
+      ]
+    },
+    {
+      "id": "non-veg-curry",
+      "name": "Non-Veg Curry",
+      "items": [
+        { "name": "Chicken Curry", "price": 180 },
+        { "name": "Chicken Masala", "price": 180 },
+        { "name": "Chicken Kadai", "price": 180 },
+        { "name": "Butter Chicken", "price": 200 },
+        { "name": "Fish Fry", "price": 250 },
+        { "name": "Fish Curry with Rice", "price": 250 }
+      ]
+    },
+    {
+      "id": "snacks",
+      "name": "Snacks",
+      "items": [
+        { "name": "French Fries", "price": 150 },
+        { "name": "Masala Papad", "price": 100 },
+        { "name": "Peanut Masala", "price": 100 },
+        { "name": "Chilli Gobi", "price": 150 },
+        { "name": "Veg Pakora", "price": 150 },
+        { "name": "Chilli Chicken", "price": 200 }
+      ]
+    },
+    {
+      "id": "noodles",
+      "name": "Noodles",
+      "items": [
+        { "name": "Veg Noodles", "price": 150 },
+        { "name": "Egg Noodles", "price": 160 },
+        { "name": "Chicken Noodles", "price": 180 }
+      ]
+    },
+    {
+      "id": "lassi",
+      "name": "Lassi",
+      "items": [
+        { "name": "Banana Lassi", "price": 120 },
+        { "name": "Pineapple Lassi", "price": 120 },
+        { "name": "Sweet Lassi", "price": 100 }
+      ]
+    }
+  ]
+}

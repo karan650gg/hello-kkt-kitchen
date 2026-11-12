@@ -1,0 +1,14 @@
+{
+  "rewrites": [],
+  "redirects": [
+    { "source": "/", "destination": "/menu/", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/data/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=300" }
+      ]
+    }
+  ]
+}
