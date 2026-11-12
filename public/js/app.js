@@ -181,7 +181,7 @@ function renderCategories(categories, currency) {
 
   const placeholder = document.createElement("option");
   placeholder.value = "";
-  placeholder.textContent = "All categories";
+  placeholder.textContent = "Select Category";
 
   const options = [placeholder];
   const sections = [];
