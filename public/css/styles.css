@@ -34,7 +34,6 @@ html {
   }
 
   .contact-btn,
-  .qr-print,
   .cta-card,
   .menu-card {
     transition: none;
@@ -93,28 +92,6 @@ h1 {
   letter-spacing: -0.03em;
   color: var(--coffee);
   text-shadow: 0 1px 0 rgb(255 253 248 / 80%);
-}
-
-/* QR — Space Grotesk uppercase, leaf */
-.heading--qr {
-  font-family: var(--font-ui);
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--leaf);
-  margin-bottom: 0.35rem;
-}
-
-.heading--qr::after {
-  content: "";
-  display: block;
-  width: 2.75rem;
-  height: 3px;
-  margin-top: 0.45rem;
-  margin-inline: auto;
-  background: var(--leaf);
-  border-radius: 999px;
 }
 
 /* Order CTA — Fraunces, terracotta */
@@ -255,11 +232,59 @@ a:hover {
   margin-bottom: 1.15rem;
 }
 
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
 .brand-row {
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  margin-bottom: 0.75rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.header-qr {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.header-qr__link {
+  display: block;
+  padding: 0.35rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgb(59 42 31 / 10%);
+  line-height: 0;
+}
+
+.header-qr__link img {
+  width: 5.5rem;
+  height: 5.5rem;
+}
+
+.header-qr__actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0;
+}
+
+.header-qr__actions .qr-download {
+  min-height: 0;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--leaf-deep);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
 }
 
 .brand-mark {
@@ -374,108 +399,6 @@ a:hover {
   font-weight: 700;
   text-align: center;
   color: var(--leaf-deep);
-}
-
-.qr-print {
-  margin-bottom: 1.25rem;
-  padding: 1.15rem;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: calc(var(--radius) + 4px);
-  box-shadow: var(--shadow);
-}
-
-.qr-print__layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  text-align: center;
-}
-
-@media (min-width: 30rem) {
-  .qr-print__layout {
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-    gap: 1.25rem;
-  }
-
-  .heading--qr::after {
-    margin-inline: 0;
-  }
-}
-
-.qr-print__figure {
-  margin: 0;
-  flex-shrink: 0;
-  padding: 0.65rem;
-  background: #fff;
-  border-radius: 18px;
-  border: 1px solid var(--border);
-  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 80%);
-}
-
-.qr-print__figure img {
-  width: 10.5rem;
-  height: 10.5rem;
-  margin: 0;
-}
-
-.qr-print__copy {
-  flex: 1;
-  min-width: 0;
-}
-
-
-.qr-lead {
-  margin-bottom: 0.4rem;
-  font-size: 1.02rem;
-  font-weight: 600;
-  color: var(--leaf-deep);
-}
-
-.qr-note {
-  margin-bottom: 0.85rem;
-  font-size: 0.9rem;
-  color: rgb(59 42 31 / 78%);
-}
-
-.qr-downloads {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.55rem;
-  margin: 0;
-}
-
-@media (min-width: 30rem) {
-  .qr-downloads {
-    justify-content: flex-start;
-  }
-}
-
-.qr-download {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap-min);
-  padding: 0.5rem 1.1rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: var(--leaf-deep);
-  background: var(--ivory);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-}
-
-.qr-download:hover {
-  border-color: var(--leaf);
-  background: #fff;
-}
-
-.qr-download:focus-visible {
-  outline: 3px solid var(--mustard);
-  outline-offset: 2px;
 }
 
 .cta-card {
@@ -910,9 +833,11 @@ a:hover {
     display: none;
   }
 
-  .qr-print {
-    border-style: solid;
-    box-shadow: none;
+  .header-qr {
     page-break-inside: avoid;
+  }
+
+  .header-qr__actions {
+    display: none;
   }
 }

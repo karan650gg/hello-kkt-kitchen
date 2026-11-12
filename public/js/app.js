@@ -27,9 +27,6 @@ const FALLBACK_ORDER_STEPS = [
 
 const QR_SVG_PATH = "/assets/qr/menu-qr.svg";
 const QR_PNG_PATH = "/assets/qr/menu-qr.png";
-const QR_CAPTION =
-  "Scan to view the menu, check availability, or contact Chef James. This QR stays valid while the public menu URL is active.";
-
 function formatPrice(price, currency) {
   if (price === null || price === undefined) return "Ask chef";
   if (typeof price === "string" && price.trim() === "") return "Ask chef";
@@ -153,11 +150,6 @@ function wireQrSection() {
   }
 
   if (qrSection) {
-    const caption = qrSection.querySelector("figcaption");
-    if (caption && !caption.textContent.trim()) {
-      caption.textContent = QR_CAPTION;
-    }
-
     const downloads = qrSection.querySelectorAll(".qr-download");
     if (downloads[0]) {
       downloads[0].setAttribute("href", QR_SVG_PATH);

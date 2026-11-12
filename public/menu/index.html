@@ -29,19 +29,36 @@
     <div id="error-banner" hidden role="alert"></div>
 
     <header class="site-header">
-      <div class="brand-row">
-        <img
-          class="brand-mark"
-          src="/assets/favicon.svg"
-          width="48"
-          height="48"
-          alt=""
-          aria-hidden="true"
-        />
-        <div>
-          <p class="eyebrow">Welcome to</p>
-          <h1 class="brand">KKT kitchen.</h1>
+      <div class="header-top">
+        <div class="brand-row">
+          <img
+            class="brand-mark"
+            src="/assets/favicon.svg"
+            width="48"
+            height="48"
+            alt=""
+            aria-hidden="true"
+          />
+          <div>
+            <p class="eyebrow">Welcome to</p>
+            <h1 class="brand">KKT kitchen.</h1>
+          </div>
         </div>
+        <aside id="qr-section" class="header-qr" aria-label="Menu QR code">
+          <a class="header-qr__link" href="/assets/qr/menu-qr.png" download="kkt-kitchen-menu-qr.png" title="Download menu QR">
+            <img
+              id="qr-img"
+              src="/assets/qr/menu-qr.svg"
+              alt="QR code for the KKT kitchen menu"
+              width="88"
+              height="88"
+            />
+          </a>
+          <p class="header-qr__actions">
+            <a class="qr-download" href="/assets/qr/menu-qr.svg" download="kkt-kitchen-menu-qr.svg">SVG</a>
+            <a class="qr-download" href="/assets/qr/menu-qr.png" download="kkt-kitchen-menu-qr.png">PNG</a>
+          </p>
+        </aside>
       </div>
       <p class="tagline">
         Fresh favourites from Chef James. Browse the menu, then place your order by call, text, or WhatsApp.
@@ -91,40 +108,6 @@
           />
           <figcaption>Evening snacks</figcaption>
         </figure>
-      </div>
-    </section>
-
-    <section id="qr-section" class="qr-print" aria-labelledby="qr-section-heading">
-      <div class="qr-print__layout">
-        <figure class="qr-print__figure">
-          <img
-            id="qr-img"
-            src="/assets/qr/menu-qr.svg"
-            alt="QR code linking to the KKT kitchen digital menu"
-            width="168"
-            height="168"
-          />
-          <figcaption class="visually-hidden">
-            Scan to view the menu, check availability, or contact Chef James. This QR stays valid while the public menu URL is active.
-          </figcaption>
-        </figure>
-        <div class="qr-print__copy">
-          <h2 id="qr-section-heading" class="heading heading--qr">Scan for the menu</h2>
-          <p class="qr-lead">
-            Scan to view the menu, check availability, or contact Chef James.
-          </p>
-          <p class="qr-note">
-            This QR stays valid while the public menu URL is active — print it once for tables and packaging.
-          </p>
-          <p class="qr-downloads">
-            <a class="qr-download" href="/assets/qr/menu-qr.svg" download="kkt-kitchen-menu-qr.svg"
-              >Download SVG</a
-            >
-            <a class="qr-download" href="/assets/qr/menu-qr.png" download="kkt-kitchen-menu-qr.png"
-              >Download PNG</a
-            >
-          </p>
-        </div>
       </div>
     </section>
 
