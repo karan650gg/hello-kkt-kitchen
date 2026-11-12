@@ -527,7 +527,12 @@ a:hover {
 }
 
 .category-picker {
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.25rem;
+  padding: 0.95rem 1rem 1.05rem;
+  background: linear-gradient(165deg, #fff8ef 0%, #fffdf8 100%);
+  border: 2px solid var(--leaf);
+  border-radius: calc(var(--radius) + 2px);
+  box-shadow: 0 6px 18px rgb(47 93 80 / 14%);
 }
 
 .category-picker[hidden] {
@@ -536,9 +541,10 @@ a:hover {
 
 .category-picker__label {
   display: block;
-  margin-bottom: 0.4rem;
-  font-size: 0.9rem;
-  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
   color: var(--leaf-deep);
 }
 
@@ -550,11 +556,11 @@ a:hover {
   content: "";
   position: absolute;
   top: 50%;
-  right: 1.1rem;
+  right: 1.15rem;
   width: 0.55rem;
   height: 0.55rem;
-  border-right: 2px solid var(--leaf-deep);
-  border-bottom: 2px solid var(--leaf-deep);
+  border-right: 2.5px solid var(--leaf-deep);
+  border-bottom: 2.5px solid var(--leaf-deep);
   transform: translateY(-65%) rotate(45deg);
   pointer-events: none;
 }
@@ -562,18 +568,22 @@ a:hover {
 .category-select {
   width: 100%;
   min-height: var(--tap-min);
-  padding: 0.7rem 2.5rem 0.7rem 1rem;
+  padding: 0.75rem 2.6rem 0.75rem 1.05rem;
   appearance: none;
   -webkit-appearance: none;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--coffee);
-  background: var(--card);
-  border: 1px solid var(--border);
+  color: var(--leaf-deep);
+  background: #fff;
+  border: 2px solid var(--mustard);
   border-radius: 999px;
-  box-shadow: 0 2px 10px rgb(59 42 31 / 6%);
+  box-shadow: 0 3px 12px rgb(59 42 31 / 8%);
   cursor: pointer;
+}
+
+.category-select:hover {
+  border-color: var(--leaf);
 }
 
 .category-select:focus-visible {
