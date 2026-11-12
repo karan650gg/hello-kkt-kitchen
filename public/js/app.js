@@ -170,6 +170,50 @@ function wireQrSection() {
   }
 }
 
+const CATEGORY_VISUALS = {
+  "hot-beverages": { glyph: "cup", image: "/assets/food/hero-coffee.jpg", alt: "Hot filter coffee" },
+  "fresh-juice": { glyph: "glass", image: "/assets/food/hero-coffee.jpg", alt: "Fresh juice vibes" },
+  milkshake: { glyph: "shake", image: "/assets/food/hero-coffee.jpg", alt: "Creamy shake" },
+  breakfast: { glyph: "dosa", image: "/assets/food/hero-dosa.jpg", alt: "Breakfast dosa" },
+  rice: { glyph: "bowl", image: "/assets/food/hero-biryani.jpg", alt: "Rice and biryani" },
+  egg: { glyph: "egg", image: "/assets/food/hero-snacks.jpg", alt: "Egg favourites" },
+  breads: { glyph: "bread", image: "/assets/food/hero-dosa.jpg", alt: "Fresh breads" },
+  "veg-curry": { glyph: "leaf", image: "/assets/food/hero-biryani.jpg", alt: "Veg curry" },
+  "non-veg-curry": { glyph: "flame", image: "/assets/food/hero-biryani.jpg", alt: "Non-veg curry" },
+  snacks: { glyph: "fries", image: "/assets/food/hero-snacks.jpg", alt: "Snacks platter" },
+  noodles: { glyph: "noodles", image: "/assets/food/hero-snacks.jpg", alt: "Noodles bowl" },
+  lassi: { glyph: "lassi", image: "/assets/food/hero-coffee.jpg", alt: "Chilled lassi" }
+};
+
+function categoryVisual(catId) {
+  return (
+    CATEGORY_VISUALS[catId] || {
+      glyph: "bowl",
+      image: "/assets/food/hero-dosa.jpg",
+      alt: "KKT kitchen favourite"
+    }
+  );
+}
+
+function categoryGlyphSvg(glyph) {
+  const paths = {
+    cup: '<path d="M6 7h10v6a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V7z"/><path d="M16 9h2a2 2 0 0 1 0 4h-2"/><path d="M9 4c.5 1 .5 2 0 3M12 4c.5 1 .5 2 0 3"/>',
+    glass: '<path d="M8 4h8l-1.2 14H9.2L8 4z"/><path d="M9 10h6"/>',
+    shake: '<path d="M9 5h6l1 6v5a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3v-5l1-6z"/><path d="M10 3h4"/>',
+    dosa: '<ellipse cx="12" cy="13" rx="8" ry="5"/><path d="M5 12c2-4 5-6 7-6s5 2 7 6"/>',
+    bowl: '<path d="M4 11h16a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6z"/><path d="M8 9c1-2 2.5-3 4-3s3 1 4 3"/>',
+    egg: '<ellipse cx="12" cy="13" rx="5" ry="6"/><ellipse cx="12" cy="14" rx="2.2" ry="2.6" fill="currentColor" opacity=".35"/>',
+    bread: '<path d="M5 10c0-3 3-5 7-5s7 2 7 5v6H5v-6z"/><path d="M8 10v4M12 9v5M16 10v4"/>',
+    leaf: '<path d="M12 20S6 15 6 10a6 6 0 0 1 12 0c0 5-6 10-6 10z"/><path d="M12 20V10"/>',
+    flame: '<path d="M12 21c-3.5 0-6-2.4-6-5.8C6 11 9 9 10 6c2 3 3 3.5 4 2 1 3 4 4.2 4 7.2 0 3.4-2.5 5.8-6 5.8z"/>',
+    fries: '<path d="M8 10h2v10H8zM11 8h2v12h-2zM14 10h2v10h-2z"/><path d="M7 20h10v2H7z"/>',
+    noodles: '<path d="M5 14c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M5 17c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M7 8h10v3H7z"/>',
+    lassi: '<path d="M9 5h6l1 8a4 4 0 0 1-4 4h0a4 4 0 0 1-4-4l1-8z"/><path d="M10 9h4"/>'
+  };
+  const body = paths[glyph] || paths.bowl;
+  return `<svg class="cat-glyph" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`;
+}
+
 function renderCategories(categories, currency) {
   const nav = document.getElementById("category-nav");
   const select = document.getElementById("category-select");
@@ -189,6 +233,7 @@ function renderCategories(categories, currency) {
   categories.forEach((cat) => {
     const sectionId = `cat-${cat.id}`;
     const headingId = `cat-heading-${cat.id}`;
+    const visual = categoryVisual(cat.id);
 
     const option = document.createElement("option");
     option.value = sectionId;
@@ -200,10 +245,29 @@ function renderCategories(categories, currency) {
     section.className = "menu-card";
     section.setAttribute("aria-labelledby", headingId);
 
+    const media = document.createElement("div");
+    media.className = "menu-card__media";
+    const img = document.createElement("img");
+    img.src = visual.image;
+    img.alt = visual.alt;
+    img.width = 640;
+    img.height = 360;
+    img.loading = "lazy";
+    img.decoding = "async";
+    media.appendChild(img);
+
     const heading = document.createElement("h3");
     heading.id = headingId;
     heading.className = "heading heading--category";
-    heading.textContent = cat.name;
+    const icon = document.createElement("span");
+    icon.className = "heading--category__icon";
+    icon.setAttribute("aria-hidden", "true");
+    icon.innerHTML = categoryGlyphSvg(visual.glyph);
+    const label = document.createElement("span");
+    label.textContent = cat.name;
+    heading.appendChild(icon);
+    heading.appendChild(label);
+    section.appendChild(media);
     section.appendChild(heading);
 
     const ul = document.createElement("ul");
