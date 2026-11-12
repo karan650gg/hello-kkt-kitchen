@@ -789,19 +789,19 @@ a:hover {
 
 .contact-btn--whatsapp {
   order: -1;
-  background: linear-gradient(180deg, #d96a3a 0%, var(--color-secondary) 48%, var(--color-secondary-dark) 100%);
+  background: linear-gradient(180deg, #34d399 0%, #22c55e 48%, #16a34a 100%);
   color: var(--color-on-primary);
   box-shadow:
-    0 10px 24px rgb(196 92 38 / 32%),
+    0 10px 24px rgb(22 163 74 / 28%),
     inset 0 1px 0 rgb(255 255 255 / 28%),
     inset 0 -3px 0 rgb(0 0 0 / 12%);
 }
 
 .contact-btn--whatsapp:hover {
-  background: linear-gradient(180deg, #e08a4a 0%, var(--color-secondary-dark) 100%);
+  background: linear-gradient(180deg, #4ade80 0%, #15803d 100%);
   color: var(--color-on-primary);
   box-shadow:
-    0 14px 28px rgb(196 92 38 / 38%),
+    0 14px 28px rgb(22 163 74 / 34%),
     inset 0 1px 0 rgb(255 255 255 / 30%);
 }
 
@@ -823,20 +823,23 @@ a:hover {
 }
 
 .contact-btn--menu {
-  background: linear-gradient(180deg, #fff 0%, var(--color-card) 100%);
-  color: var(--color-primary-dark);
-  border-color: var(--color-primary);
+  background: linear-gradient(180deg, #ff8a3d 0%, #e85d1c 45%, #c4450e 100%);
+  color: var(--color-on-primary);
+  border-color: transparent;
   box-shadow:
-    0 8px 18px rgb(47 93 80 / 14%),
-    inset 0 1px 0 rgb(255 255 255 / 90%);
+    0 10px 26px rgb(232 93 28 / 42%),
+    0 0 0 1px rgb(255 180 120 / 35%) inset,
+    inset 0 1px 0 rgb(255 255 255 / 35%),
+    inset 0 -3px 0 rgb(0 0 0 / 14%);
 }
 
 .contact-btn--menu:hover {
-  background: var(--color-primary-soft);
-  color: var(--color-primary-dark);
+  background: linear-gradient(180deg, #ff9b57 0%, #d44f12 100%);
+  color: var(--color-on-primary);
   box-shadow:
-    0 12px 24px rgb(47 93 80 / 18%),
-    inset 0 1px 0 rgb(255 255 255 / 95%);
+    0 14px 32px rgb(232 93 28 / 48%),
+    0 0 0 1px rgb(255 200 150 / 40%) inset,
+    inset 0 1px 0 rgb(255 255 255 / 40%);
 }
 
 .pay-panel {
@@ -1172,6 +1175,12 @@ a:hover {
 .sticky-bar .contact-btn--menu {
   order: -2;
   font-weight: 800;
+  letter-spacing: 0.01em;
+  box-shadow:
+    0 8px 20px rgb(232 93 28 / 45%),
+    0 0 18px rgb(255 138 61 / 35%),
+    inset 0 1px 0 rgb(255 255 255 / 35%),
+    inset 0 -2px 0 rgb(0 0 0 / 12%);
 }
 
 .sticky-bar .contact-btn--whatsapp {
