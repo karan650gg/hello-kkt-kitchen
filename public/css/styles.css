@@ -424,6 +424,46 @@ a:hover {
   color: var(--color-muted);
 }
 
+.header-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  margin-top: 0.15rem;
+  padding: 0.65rem 1.25rem;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--color-on-primary);
+  background: linear-gradient(180deg, #d96a3a 0%, var(--color-secondary) 48%, var(--color-secondary-dark) 100%);
+  border-radius: 999px;
+  box-shadow:
+    0 10px 22px rgb(196 92 38 / 32%),
+    inset 0 1px 0 rgb(255 255 255 / 28%),
+    inset 0 -3px 0 rgb(0 0 0 / 12%);
+  transition: transform 0.22s var(--ease-out), box-shadow 0.22s var(--ease-out);
+}
+
+.header-menu-btn:hover,
+.header-menu-btn:focus-visible {
+  color: var(--color-on-primary);
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 28px rgb(196 92 38 / 38%),
+    inset 0 1px 0 rgb(255 255 255 / 30%);
+}
+
+.header-menu-btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.header-menu-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
 .hours-badge {
   display: inline-flex;
   align-items: center;
@@ -611,14 +651,8 @@ a:hover {
   transform: rotate(1.3deg) translateZ(10px);
 }
 
-.food-collage__tile--samosa {
-  grid-column: 2;
-  grid-row: 4;
-  transform: rotate(-1.5deg) translateZ(10px);
-}
-
 .food-collage__tile--noodles {
-  grid-column: 3;
+  grid-column: 2 / span 2;
   grid-row: 4;
   transform: rotate(0.9deg) translateZ(10px);
 }
@@ -676,11 +710,15 @@ a:hover {
   .food-collage__tile--curry,
   .food-collage__tile--idli,
   .food-collage__tile--pancakes,
-  .food-collage__tile--samosa,
   .food-collage__tile--noodles,
   .food-collage__tile--thali {
     grid-column: auto;
     grid-row: auto;
+  }
+
+  .food-collage__tile--noodles {
+    grid-column: 1 / span 2;
+    aspect-ratio: 16 / 7;
   }
 
   .food-collage__tile--snacks {
